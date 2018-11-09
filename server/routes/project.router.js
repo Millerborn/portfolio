@@ -6,7 +6,7 @@ const router = express.Router();
 
 // return all projects
 router.get('/', (req, res) => {
-    const queryText = 'SELECT id, name, description, thumbnail, website, github, date_completed, tag_id FROM project;';
+    const queryText = 'SELECT id, name, description, thumbnail, website, github, date_completed, tag_id FROM projects;';
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
       .catch((err) => {
@@ -15,74 +15,74 @@ router.get('/', (req, res) => {
       });
   });
 
-router.post('/', (req, res) => {
-    const newProject = req.body;
-    const queryText = `INSERT INTO project ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
-                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
-    const queryValues = [
-        newProject.name,
-        newProject.description,
-        newProject.thumbnail,
-        newProject.website,
-        newProject.github,
-        newProject.date_completed,
-        newProject.tag_id,
-    ];
-    pool.query(queryText, queryValues)
-      .then(() => { res.sendStatus(201); })
-      .catch((err) => {
-        console.log('Error completing SELECT project query', err);
-        res.sendStatus(500);
-      });
-  });
+// router.post('/', (req, res) => {
+//     const newProject = req.body;
+//     const queryText = `INSERT INTO project ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
+//                     VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+//     const queryValues = [
+//         newProject.name,
+//         newProject.description,
+//         newProject.thumbnail,
+//         newProject.website,
+//         newProject.github,
+//         newProject.date_completed,
+//         newProject.tag_id,
+//     ];
+//     pool.query(queryText, queryValues)
+//       .then(() => { res.sendStatus(201); })
+//       .catch((err) => {
+//         console.log('Error completing SELECT project query', err);
+//         res.sendStatus(500);
+//       });
+//   });
 
-// put request route to send new project information to database
-router.put('/', (req, res) => {
+// // put request route to send new project information to database
+// router.put('/', (req, res) => {
 
-    const updatedProject = req.body;
+//     const updatedProject = req.body;
   
-    const queryText = `UPDATE projects
-    SET "name" = $1, 
-    "description" = $2, 
-    "thumbnail" = $3, 
-    "website" = $4, 
-    "github" = $5, 
-    "date_completed" = $6, 
-    "tag_id" = $7`;
+//     const queryText = `UPDATE projects
+//     SET "name" = $1, 
+//     "description" = $2, 
+//     "thumbnail" = $3, 
+//     "website" = $4, 
+//     "github" = $5, 
+//     "date_completed" = $6, 
+//     "tag_id" = $7`;
   
-    const queryValues = [
-      updatedProject.name,
-      updatedProject.description,
-      updatedProject.thumbnail,
-      updatedProject.website,
-      updatedProject.github,
-      updatedProject.date_completed,
-      updatedProject.tag_id,
-    ];
+//     const queryValues = [
+//       updatedProject.name,
+//       updatedProject.description,
+//       updatedProject.thumbnail,
+//       updatedProject.website,
+//       updatedProject.github,
+//       updatedProject.date_completed,
+//       updatedProject.tag_id,
+//     ];
   
-    pool.query(queryText, queryValues)
-      .then(() => { res.sendStatus(200); })
-      .catch((error) => {
-        console.log('Error completing SELECT project query', error);
-        res.sendStatus(500);
-      });
-  });
+//     pool.query(queryText, queryValues)
+//       .then(() => { res.sendStatus(200); })
+//       .catch((error) => {
+//         console.log('Error completing SELECT project query', error);
+//         res.sendStatus(500);
+//       });
+//   });
 
-// delete a project
-router.delete('/:id', (req, res) => {
-  const prjId = req.params.id;
-  console.log('Delete request', prjId);
-  const sqlText = 'DELETE FROM projects WHERE id=$1;';
-  pool.query(sqlText, [prjId])
-    .then((result) => {
-      console.log('Project was deleted');
-      alert('Project was deleted');
-      res.sendStatus(200);
-    })
-    .catch((error) => {
-      console.log(`DELETE error ${sqlText}`, error);
-      res.sendStatus(500);
-    })
-})
+// // delete a project
+// router.delete('/:id', (req, res) => {
+//   const prjId = req.params.id;
+//   console.log('Delete request', prjId);
+//   const sqlText = 'DELETE FROM projects WHERE id=$1;';
+//   pool.query(sqlText, [prjId])
+//     .then((result) => {
+//       console.log('Project was deleted');
+//       alert('Project was deleted');
+//       res.sendStatus(200);
+//     })
+//     .catch((error) => {
+//       console.log(`DELETE error ${sqlText}`, error);
+//       res.sendStatus(500);
+//     })
+// })
 
 module.exports = router;

@@ -11,10 +11,10 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 const projectRouter = require('./routes/project.router');
-const adminRouter = require('./routes/admin.router');
+// const adminRouter = require('./routes/admin.router');
 
 app.use('/projects', projectRouter);
-app.use('/admin', adminRouter);
+// app.use('/admin', adminRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

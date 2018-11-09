@@ -4,19 +4,23 @@ import './index.css';
 import App from './components/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-// Provider allows us to use redux within our react app
+// Provider allows the use of redux within react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-// Import saga middleware
+// Saga middleware
 import { call, put, takeEvery } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 import axios from 'axios';
 
+// Create sagaMiddleware
+const sagaMiddleware = createSagaMiddleware();
+
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_PROJECTS', getProjects);
-    yield takeEvery('ADD_PROJECTS', addProject);
-    yield takeEvery('DELETE_PROJECT', deleteProject);
+    // yield takeEvery('ADD_PROJECTS', addProject);
+    // yield takeEvery('DELETE_PROJECT', deleteProject);
 }
 
 function* getProjects(actions) {
@@ -30,11 +34,6 @@ function* getProjects(actions) {
         console.log('error in get projects generator', error);
     }
 }
-
-
-
-// Create sagaMiddleware
-const sagaMiddleware = createSagaMiddleware();
 
 // Used to store projects returned from the server
 const projects = (state = [], action) => {
