@@ -77,7 +77,6 @@ router.delete('/:id', (req, res) => {
   pool.query(sqlText, [prjId])
     .then((result) => {
       console.log('Project was deleted', result);
-      alert('Project was deleted');
       res.sendStatus(200);
     })
     .catch((error) => {
