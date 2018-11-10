@@ -37,6 +37,7 @@ class Admin extends Component {
         }
     }
 
+    // handle changes in the form inputs
     handleChange = event => {
         console.log('handleChange', event.target.value)
         this.setState({
@@ -47,6 +48,7 @@ class Admin extends Component {
         });
     }
 
+    // submit project information from form
     onSubmit = event => {
         console.log('onSubmit event: ', this.state);
         event.preventDefault();
@@ -65,64 +67,48 @@ class Admin extends Component {
         });
     }
 
+    // remove project
     removeProject = (id) => {
         console.log('In delete project function', id);
         this.props.dispatch( { type: 'DELETE_PROJECT', payload: id } )
     }
 
+    // display projects on page load
     componentDidMount() {
         // Dispatch action to request the projects from the API
         this.getProjectList();
     }
 
+    // get projects from index
     getProjectList() {
         this.props.dispatch( { type: 'GET_PROJECTS' } )
     }
 
-
-    menuClick = event => {
-        console.log('in menu click', event.target.value)
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    }
-
+    // handle open of drop down menu
     handleOpen = () => {
         this.setState({ open: true });
       };
-
+    
+    // handle close of drop down menu
     handleClose = () => {
     this.setState({ open: false });
   };
 
-
-    
-
   render() {
     return (
         <div>
-                <form onSubmit={this.onSubmit}>
-                    {/* <input type='text' name="name" placeholder="name" value={this.state.newProject.name} onChange={this.handleChange} />
-                    <input type='text' name="description" placeholder="description" value={this.state.newProject.description} onChange={this.handleChange} />
-                    <input type='text' name="thumbnail" placeholder="thumbnail" value={this.state.newProject.thumbnail} onChange={this.handleChange} />
-                    <input type='text' name="website" placeholder="website" value={this.state.newProject.website} onChange={this.handleChange} />
-                    <input type='text' name="github" placeholder="github" value={this.state.newProject.github} onChange={this.handleChange} />
-                    <input type='text' name="date_completed" placeholder="date_completed" value={this.state.newProject.date_completed} onChange={this.handleChange} /> */}
-                    {/* <Button type='text' name="tag_id" placeholder="tag_id" 
-                        onChange={this.menuClick}>
-                    Select a Tag
-                    </Button> */}
+                <form id="form" onSubmit={this.onSubmit}>
                     <FormControl id="formMenu">
                     <TextField type='text' name="name" placeholder="name" value={this.state.newProject.name} onChange={this.handleChange} />
-                    <TextField type='text' name="name" placeholder="description" value={this.state.newProject.description} onChange={this.handleChange} />
-                    <TextField type='text' name="name" placeholder="thumbnail" value={this.state.newProject.thumbnail} onChange={this.handleChange} />
-                    <TextField type='text' name="name" placeholder="website" value={this.state.newProject.website} onChange={this.handleChange} />
-                    <TextField type='text' name="name" placeholder="github" value={this.state.newProject.github} onChange={this.handleChange} />
+                    <TextField type='text' name="description" placeholder="description" value={this.state.newProject.description} onChange={this.handleChange} />
+                    <TextField type='text' name="thumbnail" placeholder="thumbnail" value={this.state.newProject.thumbnail} onChange={this.handleChange} />
+                    <TextField type='url' name="website" placeholder="website" value={this.state.newProject.website} onChange={this.handleChange} />
+                    <TextField type='url' name="github" placeholder="github" value={this.state.newProject.github} onChange={this.handleChange} />
                     <TextField id="date" label="date" type="date" placeholder="date" name="date_completed" 
                         value={this.state.newProject.date_completed} onChange={this.handleChange} 
                         InputLabelProps={{
                             shrink: true,
-                          }}    
+                          }}
                     />
                     <Select
                         open={this.state.open}
@@ -130,11 +116,9 @@ class Admin extends Component {
                         onOpen={this.handleOpen}
                         value={this.state.newProject.tag_id}
                         onChange={this.handleChange}
-                        inputProps={{
-                            tag_id: '',
-                        }}
+                        inputProps={{ tag_id: '', }}
                         name="tag_id"
-                        >
+                    >
                            <MenuItem value=''>
                            <em>None</em>
                            </MenuItem>
@@ -146,7 +130,7 @@ class Admin extends Component {
                             <MenuItem value={6}>HTML</MenuItem> 
                         </Select>
                     </FormControl>
-                    <Button type='submit' value='Add New Project'>
+                    <Button type='submit'>
                         Add New Project
                     </Button>
                 </form>
@@ -174,31 +158,3 @@ class Admin extends Component {
 }
 
 export default connect(mapStateToProps)(Admin);
-
-                                // <p>{projects.description}</p>
-                                // <p>{projects.thumbnail}</p>
-                                // <p>{projects.website}</p>
-                                // <p>{projects.github}</p>
-                                // <p>{projects.date_completed}</p>
-                                // <p>{projects.tag_id}</p>
-
-// <form onSubmit={this.onSubmit} noValidate autoComplete="off">
-        // <TextField
-        //   id="outlined-name"
-        //   label="Name"
-        //   value={this.state.name}
-        //   onChange={this.handleChange('name')}
-        //   margin="normal"
-        //   variant="outlined"
-        // />
-        // <TextField
-        //   id="outlined-uncontrolled"
-        //   label="Uncontrolled"
-        //   defaultValue="foo"
-        //   margin="normal"
-        //   variant="outlined"
-        // />
-        // </form>
-
-        // <div className="App">
-        // {/* <p>{JSON.stringify(this.props.reduxState.projects)}</p> */}
