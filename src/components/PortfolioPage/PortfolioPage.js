@@ -26,7 +26,10 @@ class Portfolio extends Component {
     }
 
     // render description null if empty
-    
+    // isEmpty(project) {
+    //     console.log('checking if value is empty', project.name);
+        
+    // }
 
   render() {
     return (
@@ -35,7 +38,7 @@ class Portfolio extends Component {
                     return (
                         <Card id="card" key={index}>
                             <CardActionArea id="innerDiv" key={index}>
-                                <CardMedia img={projects.thumbnail} />
+                                <CardMedia src={projects.thumbnail} alt="thumbnail" />
                                 <h3>{projects.name}</h3>
                                 <p>{projects.description}</p>
                                 <p>{projects.thumbnail}</p>
