@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './PortfolioPage.css';
+import './AdminView.css';
 
 
 const mapStateToProps = reduxState => ({
     reduxState,
 });
 
-class Portfolio extends Component {
+class Admin extends Component {
 
     componentDidMount() {
         // Dispatch action to request the projects from the API
@@ -42,4 +42,4 @@ class Portfolio extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Portfolio);
+export default connect(mapStateToProps)(Admin);
