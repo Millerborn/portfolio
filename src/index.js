@@ -19,10 +19,11 @@ const sagaMiddleware = createSagaMiddleware();
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_PROJECTS', getProjects);
-    // yield takeEvery('ADD_PROJECTS', addProject);
+    yield takeEvery('ADD_PROJECTS', addNewProject);
     // yield takeEvery('DELETE_PROJECT', deleteProject);
 }
 
+// get projects from database
 function* getProjects(actions) {
     console.log('in getProjects', actions);
     try {
@@ -34,6 +35,18 @@ function* getProjects(actions) {
         console.log('error in get projects generator', error);
     }
 }
+
+// add projects to database
+function* addNewProject(action) {
+    console.log('in add project generator', action);
+    try {
+      yield call( axios.post, '/projects', action.payload );
+      yield put( { type: 'GET_PROJECTS' } );
+    }
+    catch(error) {
+      console.log('error with add project', error);
+    }
+  }
 
 // Used to store projects returned from the server
 const projects = (state = [], action) => {

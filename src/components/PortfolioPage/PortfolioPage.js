@@ -22,21 +22,21 @@ class Portfolio extends Component {
     return (
       <div className="App">
         {/* <p>{JSON.stringify(this.props.reduxState.projects)}</p> */}
-        <div id="projectDiv">
-            {this.props.reduxState.projects.map( (projects, index) => {
-                return (
-                    <div id="innerDiv" key={index}>
-                        <p>{projects.name}</p>
-                        <p>{projects.description}</p>
-                        <p>{projects.thumbnail}</p>
-                        <p>{projects.website}</p>
-                        <p>{projects.github}</p>
-                        <p>{projects.date_completed}</p>
-                        <p>{projects.tag_id}</p>
-                    </div>
-                )
-            })}
-        </div>
+        {this.props.reduxState.projects.map( (projects, index) => {
+                    return (
+                        <div id="projectDiv" key={index}>
+                            <div id="innerDiv" key={index}>
+                                <p>{projects.name}</p>
+                                <p>{projects.description}</p>
+                                <p>{projects.thumbnail}</p>
+                                <p>{projects.website}</p>
+                                <p>{projects.github}</p>
+                                <p>{projects.date_completed}</p>
+                                <p>{projects.tag_id}</p>
+                            </div>
+                        </div>
+                    )
+                })}
       </div>
     );
   }
