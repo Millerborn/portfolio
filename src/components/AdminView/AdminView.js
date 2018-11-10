@@ -7,6 +7,16 @@ import './AdminView.css';
 // import { withStyles } from '@material-ui/core/styles';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import TextField from '@material-ui/core/TextField';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import IconButton from '@material-ui/core/IconButton';
+
+
 
 const mapStateToProps = reduxState => ({
     reduxState,
@@ -55,6 +65,11 @@ class Admin extends Component {
         });
     }
 
+    removeProject = (id) => {
+        console.log('In delete project function', id);
+        this.props.dispatch( { type: 'DELETE_PROJECT', payload: id } )
+    }
+
     componentDidMount() {
         // Dispatch action to request the projects from the API
         this.getProjectList();
@@ -79,27 +94,37 @@ class Admin extends Component {
                     <input type='text' name="tag_id" placeholder="tag_id" value={this.state.newProject.tag_id} onChange={this.handleChange} />
                     <input type='submit' value='Add New Project' />
                 </form>
-                {this.props.reduxState.projects.map( (projects, index) => {
-                    return (
-                        <div id="projectDiv" key={index}>
-                            <div id="innerDiv" key={index}>
-                                <p>{projects.name}</p>
-                                <p>{projects.description}</p>
-                                <p>{projects.thumbnail}</p>
-                                <p>{projects.website}</p>
-                                <p>{projects.github}</p>
-                                <p>{projects.date_completed}</p>
-                                <p>{projects.tag_id}</p>
-                            </div>
-                        </div>
-                    )
-                })}
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Name</TableCell>
+                                    <TableCell>Action</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {this.props.reduxState.projects.map( (projects, index) => {
+                                    return (
+                                        <TableRow key={index}>
+                                            <TableCell>{projects.name}</TableCell>
+                                            <TableCell><Button onClick={() => this.removeProject(projects.id) }>Delete</Button></TableCell>
+                                        </TableRow>
+                                    )
+                                })}
+                            </TableBody>
+                        </Table>
         </div>
     );
   }
 }
 
 export default connect(mapStateToProps)(Admin);
+
+                                // <p>{projects.description}</p>
+                                // <p>{projects.thumbnail}</p>
+                                // <p>{projects.website}</p>
+                                // <p>{projects.github}</p>
+                                // <p>{projects.date_completed}</p>
+                                // <p>{projects.tag_id}</p>
 
 // <form onSubmit={this.onSubmit} noValidate autoComplete="off">
         // <TextField

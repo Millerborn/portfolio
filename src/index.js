@@ -20,7 +20,7 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
     yield takeEvery('GET_PROJECTS', getProjects);
     yield takeEvery('ADD_PROJECTS', addNewProject);
-    // yield takeEvery('DELETE_PROJECT', deleteProject);
+    yield takeEvery('DELETE_PROJECT', deleteProject);
 }
 
 // get projects from database
@@ -49,6 +49,18 @@ function* addNewProject(action) {
       alert('Error adding new Project. Please complete required fields.');
     }
   }
+
+// Delete project from the Database
+function* deleteProject(action) {
+    console.log('in delete project generator', action);
+    try {
+        yield call( axios.delete, `/projects/${action.payload}`);
+        yield put( { type: 'GET_PROJECTS' } );
+    }
+    catch(error) {
+        console.log('error with delete request', error);
+    }
+}
 
 // Used to store projects returned from the server
 const projects = (state = [], action) => {
