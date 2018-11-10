@@ -25,6 +25,9 @@ class Portfolio extends Component {
         this.props.dispatch( { type: 'GET_PROJECTS' } )
     }
 
+    // render description null if empty
+    
+
   render() {
     return (
       <div className="App">
