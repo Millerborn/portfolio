@@ -41,10 +41,12 @@ function* addNewProject(action) {
     console.log('in add project generator', action);
     try {
       yield call( axios.post, '/projects', action.payload );
+      alert('Success adding a new Project.');
       yield put( { type: 'GET_PROJECTS' } );
     }
     catch(error) {
       console.log('error with add project', error);
+      alert('Error adding new Project. Please complete required fields.');
     }
   }
 
