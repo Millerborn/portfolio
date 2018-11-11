@@ -14,9 +14,9 @@ class App extends Component {
       <div>
         <Router>
           <div id="navBar">
-              <Button id="projectButton"><Link to="/projects">Projects</Link></Button>
+              <Button id="projectButton"><Link to="/">Projects</Link></Button>
               <Button id="adminButton"><Link to="/admin">Admin</Link></Button>
-            <Route exact path="/projects" component={Portfolio} />
+            <Route exact path="/" component={Portfolio} />
             <Route path="/admin" component={Admin}/>
           </div>
         </Router>

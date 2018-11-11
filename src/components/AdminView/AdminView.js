@@ -113,7 +113,7 @@ class Admin extends Component {
                     <TextField id="date" label="date" type="date" placeholder="date" name="date_completed" 
                         value={this.state.newProject.date_completed} onChange={this.handleChange} 
                         InputLabelProps={{
-                            shrink: true,
+                            shrink: true,   
                           }}
                     />
                     <Select

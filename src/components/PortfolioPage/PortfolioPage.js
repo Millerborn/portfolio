@@ -42,15 +42,19 @@ class Portfolio extends Component {
                 return (
                     <div id="innerDiv" key={index}>
                         <div className="card">
-                            <h3>{projects.name}</h3>
-                            <div>{projects.thumbnail === null ? '' : projects.thumbnail}</div>
-                            {/* <div> {this.props.date === null ? 'NO IDEA' : this.props.date }</div> */}
-                                <div>{projects.description === null ? '' : projects.description}</div>
-                                <div><a href={projects.website} target="_blank" rel="noopener noreferrer">Website</a></div>
-                                <br></br>
-                                <div><a href={projects.github} target="_blank" rel="noopener noreferrer">GitHub</a></div>
-                                <div>{projects.date_completed === null ? '' : projects.date_completed}</div>
-                                <div>{projects.tag_id === null ? '' : projects.tag_id}</div>
+                            <h2>{projects.name}</h2>
+                            <div>{projects.thumbnail}</div>
+                            <div>{projects.description || '' }</div>
+                            <div>
+                                {projects.website === '' ? '' : <a href={projects.website} target="_blank" rel="noopener noreferrer">Website</a>}
+                            </div>
+                            <br></br>
+                            <div>
+                                {projects.github === '' ? '' : <a href={projects.github} target="_blank" rel="noopener noreferrer">Github</a>}
+                            </div> 
+                            <br></br>                               
+                            <div>{projects.date_completed}</div>
+                            <div>{projects.tag_id === null ? '' : projects.tag_id}</div>
                         </div>
                     </div>
                         )
