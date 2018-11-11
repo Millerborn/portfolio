@@ -1,15 +1,44 @@
 #projectDiv {
     height: 250px;
-    width: 700px;
-    background-color: aqua;
-    /* display: -webkit-inline-box; */
+    width: 100%;
+    background-color: #4791db;
+    display: -webkit-inline-box;
     margin: auto;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-#innerDiv {
+/* #innerDiv {
     text-align: center;
     display: inline;
+    margin: 50px;
+    padding: 10px;
+} */
 
+#innerDiv{
+    display: -webkit-inline-flex;
+    box-sizing: border-box;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
+#card {
+    padding: 50px;
+    margin: 30px;
+}
+
+.card {
+    justify-content: center;
+    width: 350px;
+    display: inline-block;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px #888;
+    min-height: 350px;
+    max-height: 350px;
+    padding: 20px;
+    margin: 35px;
+    background-color: white;
+
+    }
+
+

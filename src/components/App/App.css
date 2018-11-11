@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+/* #navBar {
+  background-color: #222
+} */
 
 .App-header {
   background-color: #222;
@@ -16,6 +19,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+#projectButton {
+  color: red;
 }
 
 @keyframes App-logo-spin {

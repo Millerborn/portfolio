@@ -12,7 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 // import DeleteIcon from '@material-ui/icons/Delete';
 // import IconButton from '@material-ui/core/IconButton';
-import InputLabel from '@material-ui/core/InputLabel';
+// import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -97,13 +97,19 @@ class Admin extends Component {
   render() {
     return (
         <div>
-                <form id="form" onSubmit={this.onSubmit}>
+            <div>
+                <h1>Admin</h1>
+            </div>
+            <br></br>
+            <h3>Add a new project</h3>
+                <form id="formInput" onSubmit={this.onSubmit}>
                     <FormControl id="formMenu">
                     <TextField type='text' name="name" placeholder="name" value={this.state.newProject.name} onChange={this.handleChange} />
                     <TextField type='text' name="description" placeholder="description" value={this.state.newProject.description} onChange={this.handleChange} />
                     <TextField type='text' name="thumbnail" placeholder="thumbnail" value={this.state.newProject.thumbnail} onChange={this.handleChange} />
                     <TextField type='url' name="website" placeholder="website" value={this.state.newProject.website} onChange={this.handleChange} />
                     <TextField type='url' name="github" placeholder="github" value={this.state.newProject.github} onChange={this.handleChange} />
+                    <br></br>
                     <TextField id="date" label="date" type="date" placeholder="date" name="date_completed" 
                         value={this.state.newProject.date_completed} onChange={this.handleChange} 
                         InputLabelProps={{
@@ -134,7 +140,7 @@ class Admin extends Component {
                         Add New Project
                     </Button>
                 </form>
-                        <Table>
+                        <Table id="projectTable">
                             <TableHead>
                                 <TableRow>
                                     <TableCell>Name</TableCell>
