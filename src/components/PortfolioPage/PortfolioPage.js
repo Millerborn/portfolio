@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import './PortfolioPage.css';
 
 // material-ui imports
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 // import CardActionArea from '@material-ui/core/CardActionArea';
 // import CardActions from '@material-ui/core/CardActions';
 // import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CardMedia from '@material-ui/core/CardMedia';
 
 
 const mapStateToProps = reduxState => ({
@@ -25,12 +25,6 @@ class Portfolio extends Component {
         this.props.dispatch( { type: 'GET_PROJECTS' } )
     }
 
-    // render description null if empty
-    // isEmpty(project) {
-    //     console.log('checking if value is empty', project.name);
-        
-    // }
-
   render() {
     return (
       <div className="App">
@@ -43,7 +37,7 @@ class Portfolio extends Component {
                     <div id="innerDiv" key={index}>
                         <div className="card">
                             <h2>{projects.name}</h2>
-                            <div>{projects.thumbnail}</div>
+                            <div>{projects.thumbnail || ''}</div>
                             <div>{projects.description || '' }</div>
                             <div>
                                 {projects.website === '' ? '' : <a href={projects.website} target="_blank" rel="noopener noreferrer">Website</a>}
@@ -54,7 +48,7 @@ class Portfolio extends Component {
                             </div> 
                             <br></br>                               
                             <div>{projects.date_completed}</div>
-                            <div>{projects.tag_id === null ? '' : projects.tag_id}</div>
+                            <div>{projects.tag_id === null ? '' : projects.tag}</div>
                         </div>
                     </div>
                         )

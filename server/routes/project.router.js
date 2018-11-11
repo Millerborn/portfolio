@@ -6,7 +6,8 @@ const router = express.Router();
 
 // return all projects
 router.get('/', (req, res) => {
-    const queryText = 'SELECT id, name, description, thumbnail, website, github, date_completed, tag_id FROM projects;';
+    // const queryText = 'SELECT id, name, description, thumbnail, website, github, date_completed, tag_id FROM projects;';
+    const queryText = 'SELECT projects.*, tags.name as tag FROM projects JOIN tags ON projects.tag_id = tags.id';
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
       .catch((err) => {

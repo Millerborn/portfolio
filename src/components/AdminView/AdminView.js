@@ -50,6 +50,7 @@ class Admin extends Component {
 
     // submit project information from form
     onSubmit = event => {
+        this.getTag();
         console.log('onSubmit event: ', this.state);
         event.preventDefault();
         this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state.newProject })
@@ -93,6 +94,11 @@ class Admin extends Component {
     handleClose = () => {
     this.setState({ open: false });
   };
+
+//   // set tag from database
+//   getTag() {
+//     this.props.dispatch( { type: 'ADD_TAG' } )
+// }
 
   render() {
     return (

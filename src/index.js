@@ -21,11 +21,25 @@ function* rootSaga() {
     yield takeEvery('GET_PROJECTS', getProjects);
     yield takeEvery('ADD_PROJECTS', addNewProject);
     yield takeEvery('DELETE_PROJECT', deleteProject);
+    // yield takeEvery('ADD_TAG', addTag);
 }
 
+// get tags from database
+// function* getTags(action) {
+//     console.log('in getTags', action);
+//     try {
+//         const response = yield call(axios.get, '/projects');
+//         yield put( { type: 'SET_TAGS', payload: response.data } )
+//         console.log('getTags response data', response.data);
+//     }
+//     catch(error) {
+//         console.log('error in get tags generator', error);
+//     }
+// }
+
 // get projects from database
-function* getProjects(actions) {
-    console.log('in getProjects', actions);
+function* getProjects(action) {
+    console.log('in getProjects', action);
     try {
         const response = yield call(axios.get, '/projects');
         yield put( { type: 'SET_PROJECTS', payload: response.data } )
