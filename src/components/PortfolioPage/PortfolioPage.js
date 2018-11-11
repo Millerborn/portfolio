@@ -37,7 +37,7 @@ class Portfolio extends Component {
                     <div id="innerDiv" key={index}>
                         <div className="card">
                             <h2>{projects.name}</h2>
-                            <div>{projects.thumbnail || ''}</div>
+                            <div>{projects.thumbnail === '' ? '' : <img src={projects.thumbnail} alt="thumbnail"/>}</div>
                             <div>{projects.description || '' }</div>
                             <div>
                                 {projects.website === '' ? '' : <a href={projects.website} target="_blank" rel="noopener noreferrer">Website</a>}

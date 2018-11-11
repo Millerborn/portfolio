@@ -50,7 +50,6 @@ class Admin extends Component {
 
     // submit project information from form
     onSubmit = event => {
-        this.getTag();
         console.log('onSubmit event: ', this.state);
         event.preventDefault();
         this.props.dispatch({ type: 'ADD_PROJECTS', payload: this.state.newProject })
@@ -95,11 +94,6 @@ class Admin extends Component {
     this.setState({ open: false });
   };
 
-//   // set tag from database
-//   getTag() {
-//     this.props.dispatch( { type: 'ADD_TAG' } )
-// }
-
   render() {
     return (
         <div>
@@ -119,7 +113,7 @@ class Admin extends Component {
                     <TextField id="date" label="date" type="date" placeholder="date" name="date_completed" 
                         value={this.state.newProject.date_completed} onChange={this.handleChange} 
                         InputLabelProps={{
-                            shrink: true,   
+                            shrink: true,
                           }}
                     />
                     <Select
