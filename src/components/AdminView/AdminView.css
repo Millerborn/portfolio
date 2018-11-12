@@ -22,3 +22,9 @@ h3 {
     padding: 30px;
     margin: 15px;
 }
+
+#mainDiv {
+    margin: flex;
+    padding: 300px;
+    background: white;
+}

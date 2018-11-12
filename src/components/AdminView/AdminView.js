@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AdminView.css';
+import { Link } from 'react-router-dom';
+
 
 // material-ui imports
 import TextField from '@material-ui/core/TextField';
@@ -96,7 +98,8 @@ class Admin extends Component {
 
   render() {
     return (
-        <div>
+        <div id="mainDiv">
+            <Button id="projectButton"><Link to="/">Projects</Link></Button>
             <div>
                 <h1>Admin</h1>
             </div>

@@ -8,14 +8,12 @@ import Button from '@material-ui/core/Button';
 
 
 class App extends Component {
-  // Renders the entire app on the DOM
+  // Render the app on the DOM
   render() {
     return (
-      <div>
+      <div id="AppDiv">
         <Router>
           <div id="navBar">
-              <Button id="projectButton"><Link to="/">Projects</Link></Button>
-              <Button id="adminButton"><Link to="/admin">Admin</Link></Button>
             <Route exact path="/" component={Portfolio} />
             <Route path="/admin" component={Admin}/>
           </div>

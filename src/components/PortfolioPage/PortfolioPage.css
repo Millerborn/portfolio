@@ -1,25 +1,35 @@
+.App {
+    height: 1200px;
+    background-color: #2196f3;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#headerDiv {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-family: Poppins;
+    font-size: 200px;
+}
+
 #projectDiv {
-    height: 250px;
-    width: 100%;
+    height: 350px;
+    width: 500px;
     background-color: #4791db;
-    display: -webkit-inline-box;
     margin: auto;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-/* #innerDiv {
-    text-align: center;
-    display: inline;
-    margin: 50px;
-    padding: 10px;
-} */
-
 #innerDiv{
-    display: -webkit-inline-flex;
-    box-sizing: border-box;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: inline-block;
+    justify-content: space-between;
+    text-align: right;
+    align-items: center;
+    display: inline-flex;
 }
 
 #card {
@@ -27,18 +37,38 @@
     margin: 30px;
 }
 
-.card {
-    justify-content: center;
-    width: 350px;
+#description {
+    text-align: left;
+}
+
+#img {
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+}
+
+#card {
+    width: 800px;
     display: inline-block;
+    align-self: center;
+    border-top: 5px solid black;
+    justify-content: space-between;
     border: 1px solid gray;
-    box-shadow: 1px 1px 3px #888;
+    box-shadow: 1px 1px 3px rgb(240, 236, 236);
     min-height: 350px;
     max-height: 350px;
     padding: 20px;
     margin: 35px;
-    background-color: white;
+    background: #9CBFFF;
+    background: -webkit-linear-gradient(top left, #9CBFFF, #FBFCFF);
+    background: -moz-linear-gradient(top left, #9CBFFF, #FBFCFF);
+    background: linear-gradient(top left, #9CBFFF, #FBFCFF);
+}
 
-    }
+#thumbnail {
+    justify-content: flex-start;
+    height: 150px;
+    width: 150px;
+}
 
 
