@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 // material-ui imports
+// import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,6 +13,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 // import DeleteIcon from '@material-ui/icons/Delete';
 // import IconButton from '@material-ui/core/IconButton';
 // import InputLabel from '@material-ui/core/InputLabel';
@@ -107,19 +109,27 @@ class Admin extends Component {
             <h3>Add a new project</h3>
                 <form id="formInput" onSubmit={this.onSubmit}>
                     <FormControl id="formMenu">
-                    <TextField type='text' name="name" placeholder="name" value={this.state.newProject.name} onChange={this.handleChange} />
-                    <TextField type='text' name="description" placeholder="description" value={this.state.newProject.description} onChange={this.handleChange} />
-                    <TextField type='text' name="thumbnail" placeholder="thumbnail" value={this.state.newProject.thumbnail} onChange={this.handleChange} />
-                    <TextField type='url' name="website" placeholder="website" value={this.state.newProject.website} onChange={this.handleChange} />
-                    <TextField type='url' name="github" placeholder="github" value={this.state.newProject.github} onChange={this.handleChange} />
-                    <br></br>
-                    <TextField id="date" label="date" type="date" placeholder="date" name="date_completed" 
+                    <TextField type='text' label="name" name="name" placeholder="name" margin="normal" variant="outlined"
+                        value={this.state.newProject.name} onChange={this.handleChange} />
+                    <TextField type='text' label="description" placeholder="description" multiline name="description" margin="normal" variant="outlined" 
+                        value={this.state.newProject.description} onChange={this.handleChange} />
+                    <TextField type='text' label="thumbnail" name="thumbnail" placeholder="thumbnail" margin="normal" variant="outlined"
+                        value={this.state.newProject.thumbnail} onChange={this.handleChange} />
+                    <TextField type='url' label="website" name="website" placeholder="website" margin="normal" variant="outlined"
+                        value={this.state.newProject.website} onChange={this.handleChange} />
+                    <TextField type='url' label="github" name="github" placeholder="github" margin="normal" variant="outlined" 
+                        value={this.state.newProject.github} onChange={this.handleChange} />
+                    <TextField id="date" label="date" type="date" placeholder="date" name="date_completed" margin="normal" variant="outlined"
                         value={this.state.newProject.date_completed} onChange={this.handleChange} 
                         InputLabelProps={{
                             shrink: true,
                           }}
                     />
+                    <br></br>
                     <Select
+                        variant="outlined"
+                        label="technology"
+                        placeholder="None"
                         open={this.state.open}
                         onClose={this.handleClose}
                         onOpen={this.handleOpen}
@@ -127,6 +137,15 @@ class Admin extends Component {
                         onChange={this.handleChange}
                         inputProps={{ tag_id: '', }}
                         name="tag_id"
+                        input={
+                            <OutlinedInput
+                              labelWidth={0}
+                              name="technology"
+                              id="tech-field"
+                              label="technology"
+                              placeholder="technology"
+                            />
+                          }
                     >
                            <MenuItem value=''>
                            <em>None</em>
@@ -139,7 +158,7 @@ class Admin extends Component {
                             <MenuItem value={6}>HTML</MenuItem> 
                         </Select>
                     </FormControl>
-                    <Button type='submit'>
+                    <Button margin="normal" variant="outlined" type='submit'>
                         Add New Project
                     </Button>
                 </form>

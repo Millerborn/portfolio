@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './PortfolioPage.css';
 import Button from '@material-ui/core/Button';
+import Header from './Header/Header';
 
 
-// import Card from '@material-ui/core/Card';
-// import CardActionArea from '@material-ui/core/CardActionArea';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+
+const moment = require('moment');
 
 
 const mapStateToProps = reduxState => ({
@@ -29,31 +33,33 @@ class Portfolio extends Component {
   render() {
     return (
       <div className="App">
-        <div id="headerDiv">
-            <h1>Cooper Miller</h1>
+        <Header github={'Millerborn'} name={'COOPER MILLER'}/>
+        <div id="nameDiv">
+            <h3 id="projectSection">Projects</h3>
+            <p></p>
         </div>
             {this.props.reduxState.projects.map( (projects, index) => {
                 return (
-                    <div id="innerDiv" key={index}>
-                        <div id="card">
-                        <div>{projects.tag_id === null ? '' : projects.tag}</div>   
-                            <div id="thumbnail">{projects.thumbnail === '' ? '' : <img id="img" src={projects.thumbnail} alt="thumbnail"/>}</div>
-                            <h2>{projects.name}</h2>
-                            <div>
+                    <Card id="cardDiv" key={index}>
+                        <img id="img" src={projects.thumbnail} alt="thumbnail"/>
+                        <CardContent id="card">
+                            <h2 id="float-left">{projects.name}</h2>
+                            <br></br>
+                            <div>{projects.tag || ''}</div>
+                            <br></br>   
                             <Button>
                                 {projects.website === '' ? '' : <a href={projects.website} target="_blank" rel="noopener noreferrer">Website</a>}
                             </Button>
-                            </div>
-                            <div>
+                            <br></br>
                             <Button>
                                 {projects.github === '' ? '' : <a href={projects.github} target="_blank" rel="noopener noreferrer">Github</a>}
                             </Button>
-                            </div> 
-                            <div id="description">{projects.description || '' }</div>
-                            <div>{projects.date_completed}</div>
-                        </div>
-                    </div>
-                        )
+                            <br></br>
+                            <div>{moment(projects.date_completed).format('LL')}</div>
+                        </CardContent>
+                        <Typography id="description">{projects.description || '' }</Typography>
+                    </Card>
+                )
             })}
       </div>
     );

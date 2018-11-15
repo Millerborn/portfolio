@@ -2,4 +2,40 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: white;
+}
+
+.bg-color {
+  background-color: #2196f3;
+}
+
+.user-img-container {
+  background-color: #2196f3;
+}
+
+#profile-image {
+  margin: 60px auto 0 auto;
+  padding: 2px;
+  height: 160px;
+  width: 200px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+#header {
+  height: 800px;
+  background-color: #2196f3;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  line-height: 500px;
+}
+
+#headerDiv {
+  text-align: center;
+  color: white;
 }
