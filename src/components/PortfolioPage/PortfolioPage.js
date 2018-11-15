@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './PortfolioPage.css';
 import Button from '@material-ui/core/Button';
 import Header from './Header/Header';
+import Body from './PortfolioBody/PortfolioBody'
 
 
 import Card from '@material-ui/core/Card';
@@ -33,8 +34,9 @@ class Portfolio extends Component {
   render() {
     return (
       <div className="App">
-        <Header github={'Millerborn'} name={'COOPER MILLER'}/>
-        <div id="nameDiv">
+        {/* <Header github={'Millerborn'} name={'COOPER MILLER'}/> */}
+        <Body />
+        {/* <div id="nameDiv">
             <h3 id="projectSection">Projects</h3>
             <p></p>
         </div>
@@ -60,7 +62,7 @@ class Portfolio extends Component {
                         <Typography id="description">{projects.description || '' }</Typography>
                     </Card>
                 )
-            })}
+            })} */}
       </div>
     );
   }
