@@ -8,7 +8,7 @@ class Body extends Component {
                 <div class="bgimg-1">
                     <header></header>
                     <div class="caption">
-                        <span class="border">TheBarrellMaker</span>
+                        <span class="border">Cooper Miller</span>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@ class Body extends Component {
                 </div>
 
                 <div class="divStyle">
-                    <h3 class="h3Caption">Collection</h3>
+                    <h3 class="h3Caption">About Me</h3>
                     <p></p>
                 </div>
 
@@ -36,7 +36,7 @@ class Body extends Component {
                 </div>
 
                 <div class="divStyle">
-                    <h3 class="h3Caption">Download Photos here</h3>
+                    <h3 class="h3Caption">Learn More</h3>
                     <p></p>
                 </div>
 
