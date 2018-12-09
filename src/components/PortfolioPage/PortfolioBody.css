@@ -1,0 +1,82 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-color: #18FFFF;
+  min-height: 800px;
+}
+
+.bgimg-2 {
+  background-color: #9575CD;
+  min-height: 800px;
+  align-items: flex-end;
+
+}
+
+.bgimg-3 {
+  background-color: #FFEB3B;
+  min-height: 800px;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+#main-display-images {
+  max-height: 350px;
+  max-width: 350px;
+}
+
+.caption span.border {
+  color: white;
+  font-size: 95px;
+  letter-spacing: 5px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+.divStyle {
+  color: black;
+  background-color: white;
+  text-align: center;
+}
+
+.h3Caption {
+    text-align: center;
+    font-size: 36px;
+}
+
+.border {
+  font-size: 25px;
+  color: #f7f7f7;
+  background-size: 100%;
+  top: -200px;
+}
+
+.profile-images {
+  align-content: center;
+  justify-content: flex-start;
+  padding: 10px;
+}
