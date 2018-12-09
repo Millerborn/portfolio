@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import Projects from '../Projects/Projects';
 import About from '../About/About';
-import Connect from '../Connect/Connect';
 import Home from '../Home/Home';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -20,6 +19,9 @@ const styles = theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(30),
     fontWeight: theme.typography.fontWeightRegular,
+    fontFamily: 'oswald',
+    padding: '5px',
+    margin: '5px',
   },
 });
 
@@ -31,7 +33,7 @@ class Body extends Component {
             <div className={classes.root}>
             <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Welcome</Typography>
+                <Typography className={classes.heading}>Links</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Home />
@@ -51,14 +53,6 @@ class Body extends Component {
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <About />
-                </ExpansionPanelDetails>
-            </ExpansionPanel>
-            <ExpansionPanel>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Connect</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                    <Connect />
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         </div>

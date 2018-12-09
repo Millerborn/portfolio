@@ -13,7 +13,7 @@ class Projects extends Component {
 
   render() {
     return (
-        <div class="bgimg-2">
+        <div>
             {this.props.projects.map( (projects, index) => {
                 return (
                 <Card id="display" key={index}>
@@ -32,12 +32,7 @@ class Projects extends Component {
                         <div>Made with {projects.tag}</div>
                     </CardContent>
                     <CardContent>
-                        <Button color="primary" variant="contained">
-                            {projects.website === '' ? '' : <a href={projects.website} target="_blank" rel="noopener noreferrer">Website</a>}
-                        </Button>
-                        <Button color="primary" variant="contained">
-                            {projects.github === '' ? '' : <a href={projects.github} target="_blank" rel="noopener noreferrer">Github</a>}
-                        </Button>
+                        <Button color="primary" variant="contained"><a className="project-link-button" href={projects.website} target="_blank" rel="noopener noreferrer">Website</a></Button> <Button color="primary" variant="contained"><a className="project-link-button" href={projects.github} target="_blank" rel="noopener noreferrer">Github</a></Button>
                     </CardContent>
                 </Card>
             )

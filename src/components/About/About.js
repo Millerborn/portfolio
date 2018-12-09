@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import '../PortfolioPage/PortfolioPage.css';
-
-
 class About extends Component {
     render() {
         return (
             <div>
-                <div id="about" class="divStyle">
-                    <h3  class="h3Caption">About Me</h3>
-                </div>
-                <div class="bgimg-3">
-                    <div class="caption">
-                        <span class="border"></span>
-                    </div>
-                </div>
+                <img className="link-image" alt="" src="/images/profile-cooper.jpg"></img>
+                <p>I am a Junior Developer entering the Tech industry. 
+                    My background comes from working in fast paced environments
+                    communicating with teammates to accomplish a mutual goal,
+                    give customers the best experience possible. I have a passion
+                    for giving people a unique and enjoyable experience.
+                    I want to translate that into the tech industry and work with new
+                    and talented people to make something incredible.    
+                </p>
             </div>
         );
     }

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './PortfolioPage.css';
 import Body from './PortfolioBody';
-
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 class Portfolio extends Component {
 
     componentDidMount() {
@@ -17,7 +18,9 @@ class Portfolio extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Body />
+        <Footer />
       </div>
     );
   }

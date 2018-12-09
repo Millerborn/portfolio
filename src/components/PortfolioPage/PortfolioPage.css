@@ -32,3 +32,14 @@
     height: 250px;
     width: 250px;
 }
+
+.project-link-button {
+    color: white;
+    align-content: space-between;
+    
+}
+
+.about-image {
+    height: 325px;
+    width: 450px;
+}
