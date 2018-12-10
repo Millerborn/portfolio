@@ -4,7 +4,7 @@ class About extends Component {
     render() {
         return (
             <div>
-                <img className="link-image" alt="" src="/images/profile-cooper.jpg"></img>
+                <img className="link-image" alt="" src="/images/ireland-profile.jpg"></img>
                 <p>I am a Junior Developer entering the Tech industry. 
                     My background comes from working in fast paced environments
                     communicating with teammates to accomplish a mutual goal,

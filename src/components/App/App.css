@@ -1,6 +1,12 @@
 .App {
   text-align: center;
-  background-color: #FFEB3B;
+  background-image: url('/images/oli.jpg');
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
 }
 
 .App-header {

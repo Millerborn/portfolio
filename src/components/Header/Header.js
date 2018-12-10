@@ -5,9 +5,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     header: {
-        padding: 10,
-        backgroundColor: '#FFEB3B',
-        fontFamily: 'oswald',
+        padding: 15,
+        fontFamily: 'Roboto',
+        color: 'black',
+        fontSize: '70px',
     },
 });
 
@@ -16,7 +17,7 @@ class Header extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.header}>
-                <h1>Cooper Miller</h1>  
+                <strong><p>Cooper Miller</p></strong>  
             </div>
         );
     }
