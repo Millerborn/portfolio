@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import compose from 'recompose/compose';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import './Header.css';
 
 const styles = theme => ({
     header: {
@@ -16,7 +17,7 @@ class Header extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className={classes.header}>
+            <div id="hit-the-floor" className={classes.header}>
                 <strong><p>Cooper Miller</p></strong>  
             </div>
         );

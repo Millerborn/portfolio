@@ -13,10 +13,10 @@ class Projects extends Component {
 
   render() {
     return (
-        <div>
+        <div className="projects-div">
             {this.props.projects.map( (projects, index) => {
                 return (
-                <Card id="display" key={index}>
+                <Card className="project-content" id="display" key={index}>
                     <CardMedia>
                     <img id="img" src={projects.thumbnail} alt="thumbnail"/>
                     </CardMedia>
@@ -26,7 +26,6 @@ class Projects extends Component {
                         <Typography id="description">{projects.description || '' }</Typography>
                     <CardContent>
                         <h2>{projects.name}</h2>
-                        <div>{projects.tag}</div>
                     </CardContent>
                     <CardContent>
                         <div>Made with {projects.tag}</div>

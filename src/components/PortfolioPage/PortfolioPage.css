@@ -4,8 +4,7 @@
     align-items: flex-start;
 }
 
-/* section containing card */
-#display {
+.project-content {
     display: inline-block;
     top: 0;
     height: 475px;
@@ -13,8 +12,10 @@
     margin: 15px;
     padding: 20px;
     line-height: 0;
-    justify-content: space-around;
-    align-items: flex-start;
+}
+
+.projects-div {
+    justify-content: center;
 }
 
 /* card image */ 
