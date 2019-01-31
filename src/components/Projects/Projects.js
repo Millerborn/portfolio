@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import '../PortfolioPage/PortfolioPage.css';
 
 const moment = require('moment');
-
 class Projects extends Component {
 
   render() {
